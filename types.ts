@@ -1,3 +1,4 @@
+import React from 'react';
 
 export type Language = 'es' | 'en';
 
@@ -44,7 +45,7 @@ export interface CountryCode {
 }
 
 export interface Guarantee {
-  icon: any;
+  icon: React.ReactNode;
   title: string;
   desc: string;
 }

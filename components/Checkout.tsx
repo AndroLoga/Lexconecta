@@ -3,7 +3,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { PRICING, APPS, CONTENT, COUNTRIES, EXCHANGE_RATE } from '../constants';
 import { ChevronLeft, ChevronRight, Check, Wallet, CreditCard, Receipt, ShieldCheck, RefreshCw, AlertCircle, Info } from 'lucide-react';
-import { PricingPlan, AppProduct } from '../types';
+import { PricingPlan, AppProduct, GlobalContent } from '../types';
 
 // CountUp Hook for Animations (supports Integers and Floats)
 const useCountUp = (end: number, duration: number = 2000, isFloat: boolean = false) => {
@@ -46,7 +46,7 @@ const PlanSelectionItem: React.FC<{
   plan: PricingPlan; 
   isSelected: boolean; 
   onSelect: (plan: PricingPlan) => void;
-  t: any; 
+  t: GlobalContent; 
   exchangeRate: number;
 }> = ({ plan, isSelected, onSelect, t, exchangeRate }) => {
   const animatedPrice = useCountUp(plan.priceValue);
@@ -498,7 +498,7 @@ const Checkout: React.FC = () => {
                                       ? `Estás pagando únicamente la Inversión de Desarrollo (L ${selectedApp?.price.toLocaleString()}). El Plan Empresarial se cotiza por separado.` 
                                       : `You are paying only for the Development Fee (L ${selectedApp?.price.toLocaleString()}). The Enterprise Plan is quoted separately.`}
                                   </p>
-                               </div>
+                                </div>
                            ) : null}
 
                            <div className="bg-[#003087] hover:bg-[#00256b] p-6 rounded-2xl text-white text-center cursor-pointer transition-all shadow-lg transform hover:-translate-y-1" onClick={handleFinalize}>
