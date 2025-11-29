@@ -1,5 +1,3 @@
-
-
 import { AppProduct, GlobalContent, PricingPlan, Testimonial, CountryCode, Guarantee } from './types';
 import { 
   Bell, FileText, Database, BarChart, 
